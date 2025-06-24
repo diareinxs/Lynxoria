@@ -28,7 +28,10 @@ const Login = (props) => {
         // Your login logic here.
         console.log(`Logging in with Username: ${loginUsername}, Password: ${loginPassword}`);
         // In a real app, you would send this to an authentication API
-        alert("Login functionality would be implemented here!"); // Retaining alert as per user's original code pattern.
+        //alert("Login functionality would be implemented here!"); // Retaining alert as per user's original code pattern.
+        if (props.onLogin) {
+            props.onLogin();
+        }
     };
 
     const handleSignupSubmit = (e) => {
@@ -115,9 +118,9 @@ const Login = (props) => {
                                     onChange={(e) => setLoginPassword(e.target.value)}
                                     required
                                 />
-                                <span className="password-toggle" onClick={() => togglePasswordVisibility(setShowLoginPassword, showLoginPassword)}>
+                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowLoginPassword, showLoginPassword)}>
                                     {showLoginPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </span>
+                                </button>
                             </div>
 
                             <div className="flex items-center justify-between mb-6">
@@ -197,9 +200,9 @@ const Login = (props) => {
                                     onChange={(e) => setSignupPassword(e.target.value)}
                                     required
                                 />
-                                <span className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupPassword, showSignupPassword)}>
+                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupPassword, showSignupPassword)}>
                                     {showSignupPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </span>
+                                </button>
                             </div>
 
                             <div className="mb-6 relative">
@@ -215,9 +218,9 @@ const Login = (props) => {
                                     onChange={(e) => setSignupConfirmPassword(e.target.value)}
                                     required
                                 />
-                                <span className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupConfirmPassword, showSignupConfirmPassword)}>
+                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupConfirmPassword, showSignupConfirmPassword)}>
                                     {showSignupConfirmPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </span>
+                                </button>
                             </div>
 
                             <button

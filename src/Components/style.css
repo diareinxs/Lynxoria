@@ -34,6 +34,10 @@ html{
     clip-path: circle(60% at left 300px);
     z-index: -1;
 }
+.header,
+.container {
+    display: none !important;
+}
 .row2{
     position: absolute;
     top:10px;

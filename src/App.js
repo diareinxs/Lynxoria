@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Login from './Components/Login/Login';
-import './Components/style.css';
 import Main from './Components/Main';
+import './Components/style.css';
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+  };
+  
   return (
     <>
-      <Login />
-      <Main/>
+      {isLoggedIn ? <Main /> : <Login onLogin={handleLogin} /> }
     </>
   );
 }
