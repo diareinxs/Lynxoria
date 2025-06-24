@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./Login/Login.css";
 
 // Main Login component encapsulating all authentication views
 const Login = (props) => {
@@ -76,10 +76,8 @@ const Login = (props) => {
     );
 
     return (
-        <div className="flex justify-center items-center min-h-screen p-5 bg-primary text-secondary">
+        <div className="login-page flex justify-center items-center min-h-screen p-5 bg-primary text-secondary">
             {/* The CSS for styling is external and would be imported (e.g., './Login.css'). */}
-            {/* Tailwind CSS CDN and Google Fonts are linked here for standalone preview purposes.
-                In a typical React project, these would be in the public/index.html or handled by a build tool. */}
             <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
             <script src="https://cdn.tailwindcss.com"></script>
 
@@ -88,15 +86,15 @@ const Login = (props) => {
                 {/* Login Form */}
                 {currentView === 'login' && (
                     <div id="login-form">
-                        <h2 className="text-3xl font-semibold text-secondary mb-6 text-center heading-font">Login to Lynxoria</h2>
+                        <h2 className="login-heading">Login to Lynxoria</h2>
                         <form onSubmit={handleLoginSubmit}>
-                            <div className="mb-4">
-                                <label htmlFor="login-username" className="block text-secondary text-sm font-medium mb-2">Username</label>
+                            <div className="login-field">
+                                <label htmlFor="login-username" className="login-label">Username</label>
                                 <input
                                     type="text"
                                     id="login-username"
                                     name="username"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200"
+                                    className="login-input"
                                     placeholder="Enter your username"
                                     aria-label="Username"
                                     value={loginUsername}
@@ -105,49 +103,48 @@ const Login = (props) => {
                                 />
                             </div>
 
-                            <div className="mb-6 relative">
-                                <label htmlFor="login-password" className="block text-secondary text-sm font-medium mb-2">Password</label>
+                            <div className="login-field relative">
+                                <label htmlFor="login-password" className="login-label">Password</label>
                                 <input
                                     type={showLoginPassword ? 'text' : 'password'}
                                     id="login-password"
                                     name="password"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200 pr-10"
+                                    className="login-input pr-10"
                                     placeholder="Enter your password"
                                     aria-label="Password"
                                     value={loginPassword}
                                     onChange={(e) => setLoginPassword(e.target.value)}
                                     required
                                 />
-                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowLoginPassword, showLoginPassword)}>
+                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowLoginPassword, showLoginPassword)}>
                                     {showLoginPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
                                 </button>
                             </div>
 
-                            <div className="flex items-center justify-between mb-6">
-                                <label className="flex items-center text-secondary text-sm">
+                            <div className="login-options">
+                                <label className="login-checkbox-label">
                                     <input
                                         type="checkbox"
-                                        className="form-checkbox h-4 w-4 rounded border-secondary focus:ring-secondary mr-2"
-                                        style={{ color: 'var(--secondary-color)', backgroundColor: 'var(--primary-color)' }}
+                                        className="login-checkbox"
                                     />
                                     Remember me
                                 </label>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('forgotPassword'); }} className="inline-block align-baseline font-medium text-secondary text-sm hover:text-white transition duration-200">
+                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('forgotPassword'); }} className="login-link">
                                     Forgot Password?
                                 </a>
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full button-primary font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-75 ease-in-out"
+                                className="login-btn"
                             >
                                 Sign In
                             </button>
                         </form>
 
-                        <p className="text-center text-secondary text-xs mt-6">
+                        <p className="login-switch">
                             Don't have an account?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('signup'); }} className="text-secondary hover:text-white transition duration-200">Sign Up</a>
+                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('signup'); }} className="login-link">Sign Up</a>
                         </p>
                     </div>
                 )}
@@ -155,15 +152,15 @@ const Login = (props) => {
                 {/* Sign Up Form */}
                 {currentView === 'signup' && (
                     <div id="signup-form">
-                        <h2 className="text-3xl font-semibold text-secondary mb-6 text-center heading-font">Create Your Account</h2>
+                        <h2 className="login-heading">Create Your Account</h2>
                         <form onSubmit={handleSignupSubmit}>
-                            <div className="mb-4">
-                                <label htmlFor="signup-username" className="block text-secondary text-sm font-medium mb-2">Username</label>
+                            <div className="login-field">
+                                <label htmlFor="signup-username" className="login-label">Username</label>
                                 <input
                                     type="text"
                                     id="signup-username"
                                     name="username"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200"
+                                    className="login-input"
                                     placeholder="Choose a username"
                                     aria-label="Username"
                                     value={signupUsername}
@@ -172,13 +169,13 @@ const Login = (props) => {
                                 />
                             </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="signup-email" className="block text-secondary text-sm font-medium mb-2">Email</label>
+                            <div className="login-field">
+                                <label htmlFor="signup-email" className="login-label">Email</label>
                                 <input
                                     type="email"
                                     id="signup-email"
                                     name="email"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200"
+                                    className="login-input"
                                     placeholder="Enter your email"
                                     aria-label="Email"
                                     value={signupEmail}
@@ -187,53 +184,53 @@ const Login = (props) => {
                                 />
                             </div>
 
-                            <div className="mb-4 relative">
-                                <label htmlFor="signup-password" className="block text-secondary text-sm font-medium mb-2">Password</label>
+                            <div className="login-field relative">
+                                <label htmlFor="signup-password" className="login-label">Password</label>
                                 <input
                                     type={showSignupPassword ? 'text' : 'password'}
                                     id="signup-password"
                                     name="password"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200 pr-10"
+                                    className="login-input pr-10"
                                     placeholder="Create a password"
                                     aria-label="Password"
                                     value={signupPassword}
                                     onChange={(e) => setSignupPassword(e.target.value)}
                                     required
                                 />
-                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupPassword, showSignupPassword)}>
+                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupPassword, showSignupPassword)}>
                                     {showSignupPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
                                 </button>
                             </div>
 
-                            <div className="mb-6 relative">
-                                <label htmlFor="signup-confirm-password" className="block text-secondary text-sm font-medium mb-2">Confirm Password</label>
+                            <div className="login-field relative">
+                                <label htmlFor="signup-confirm-password" className="login-label">Confirm Password</label>
                                 <input
                                     type={showSignupConfirmPassword ? 'text' : 'password'}
                                     id="signup-confirm-password"
                                     name="confirm-password"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200 pr-10"
+                                    className="login-input pr-10"
                                     placeholder="Confirm your password"
                                     aria-label="Confirm Password"
                                     value={signupConfirmPassword}
                                     onChange={(e) => setSignupConfirmPassword(e.target.value)}
                                     required
                                 />
-                                <button className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupConfirmPassword, showSignupConfirmPassword)}>
+                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupConfirmPassword, showSignupConfirmPassword)}>
                                     {showSignupConfirmPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
                                 </button>
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full button-primary font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-75 ease-in-out mb-4"
+                                className="login-btn mb-4"
                             >
                                 Sign Up
                             </button>
                         </form>
 
-                        <p className="text-center text-secondary text-xs mt-6">
+                        <p className="login-switch">
                             Already have an account?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="text-secondary hover:text-white transition duration-200">Sign In</a>
+                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="login-link">Sign In</a>
                         </p>
                     </div>
                 )}
@@ -241,15 +238,15 @@ const Login = (props) => {
                 {/* Forgot Password Form */}
                 {currentView === 'forgotPassword' && (
                     <div id="forgot-password-form">
-                        <h2 className="text-3xl font-semibold text-secondary mb-6 text-center heading-font">Forgot Your Password?</h2>
+                        <h2 className="login-heading">Forgot Your Password?</h2>
                         <form onSubmit={handleForgotPasswordSubmit}>
-                            <div className="mb-4">
-                                <label htmlFor="forgot-email" className="block text-secondary text-sm font-medium mb-2">Email Address</label>
+                            <div className="login-field">
+                                <label htmlFor="forgot-email" className="login-label">Email Address</label>
                                 <input
                                     type="email"
                                     id="forgot-email"
                                     name="email"
-                                    className="input-field rounded-md w-full py-2 px-3 leading-tight transition duration-200"
+                                    className="login-input"
                                     placeholder="Enter your email address"
                                     aria-label="Email Address"
                                     value={forgotEmail}
@@ -260,15 +257,15 @@ const Login = (props) => {
 
                             <button
                                 type="submit"
-                                className="w-full button-primary font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-75 ease-in-out mb-4"
+                                className="login-btn mb-4"
                             >
                                 Reset Password
                             </button>
                         </form>
 
-                        <p className="text-center text-secondary text-xs mt-6">
+                        <p className="login-switch">
                             Remembered your password?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="text-secondary hover:text-white transition duration-200">Back to Sign In</a>
+                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="login-link">Back to Sign In</a>
                         </p>
                     </div>
                 )}

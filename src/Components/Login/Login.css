@@ -28,58 +28,95 @@
     background: #555; /* Darker grey on hover */
 }
 
-/* Custom utility classes for colors using Tailwind's arbitrary values */
+/* Utility classes for colors */
 .bg-primary { background-color: var(--primary-color); }
 .bg-secondary { background-color: var(--secondary-color); }
 .text-primary { color: var(--primary-color); }
 .text-secondary { color: var(--secondary-color); }
 .border-primary { border-color: var(--primary-color); }
 .border-secondary { border-color: var(--secondary-color); }
-.shadow-secondary { box-shadow: 0 5px 10px var(--secondary-color); } /* From your header style */
+.shadow-secondary { box-shadow: 0 5px 10px var(--secondary-color); }
 
-/* Specific styles for the login card and elements */
-.auth-card {
-    background-color: var(--primary-color); /* Card background */
-    border: 1px solid var(--secondary-color); /* Card border */
-    box-shadow: 0 5px 10px rgba(212,185,150,.5); /* Similar to your card shadow */
-    transition: height 0.3s ease-in-out; /* Smooth transition for height change */
-}
+/* Login form custom styles */
+/* Removed empty .login-page ruleset */
 
-.input-field {
-    background-color: var(--primary-color); /* Input background */
-    color: var(--secondary-color); /* Input text color */
-    border: 1px solid var(--secondary-color); /* Input border */
-    line-height: normal; /* Ensure consistent line height */
-}
-
-.input-field:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--secondary-color); /* Focus ring */
-    border-color: transparent; /* Transparent border on focus */
-}
-
-.button-primary {
-    background-color: var(--secondary-color); /* Button background */
-    color: var(--primary-color); /* Button text color */
-    font-weight: bold;
-    transition: .5s; /* From your card hover transition */
-}
-
-.button-primary:hover {
-    transform: scale(1.05); /* Slightly larger scale on hover */
-    background-color: rgba(212,185,150,0.8); /* Lighter on hover */
-}
-
-/* Specific font for the heading */
-.body {
+.login-heading {
     font-family: 'Bodoni Moda', serif;
+    /* Add more heading styles as needed */
+}
+
+.login-field {
+    position: relative;
+    margin-bottom: 1rem;
+    /* Add more field wrapper styles as needed */
+}
+
+.login-label {
+    color: var(--secondary-color);
+    /* Add more label styles as needed */
+}
+
+.login-input {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    line-height: normal;
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    box-sizing: border-box;
+}
+
+.login-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--secondary-color);
+    border-color: transparent;
+}
+
+.login-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(212,185,150,0.8);
+}
+
+.login-link {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-switch {
+    color: var(--secondary-color);
+    cursor: pointer;
+    /* Add more switch styles as needed */
+}
+
+.login-checkbox-label {
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-checkbox {
+    accent-color: var(--secondary-color);
+    margin-right: 0.5rem;
 }
 
 /* Style for the password toggle icon */
 .password-toggle {
     position: absolute;
     right: 12px;
-    top: calc(50% + 2px); /* Pushes the icon down by a couple of pixels */
+    top: calc(50% + 2px);
     transform: translateY(-50%);
     cursor: pointer;
     width: 20px;
@@ -89,5 +126,5 @@
     justify-content: center;
 }
 .password-toggle svg {
-    fill: var(--secondary-color); /* Icon color */
+    fill: var(--secondary-color);
 }
