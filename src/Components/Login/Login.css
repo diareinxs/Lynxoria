@@ -1,3 +1,5 @@
+@import url(Login.js);
+
 /* Define CSS Variables */
 :root {
     --primary-color: #755139FF; /* Dark Brown */
