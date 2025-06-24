@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 
 // Main Login component encapsulating all authentication views
-const Login = () => {
+const Login = (props) => {
     // State to manage which form is currently visible
     const [currentView, setCurrentView] = useState('login'); // 'login', 'signup', 'forgotPassword'
 
