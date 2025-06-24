@@ -1,9 +1,11 @@
 import React from 'react';
-import Main from './Components/Main';
+import Login from './Components/Login/Login';
 import './Components/style.css';
+import Main from './Components/Main';
 function App() {
   return (
     <>
+      <Login />
       <Main/>
     </>
   );

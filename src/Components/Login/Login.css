@@ -1,0 +1,93 @@
+/* Define CSS Variables */
+:root {
+    --primary-color: #755139FF; /* Dark Brown */
+    --secondary-color: #D4B996FF; /* Light Beige */
+}
+
+/* Apply global styles */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Default font */
+}
+
+/* Custom scrollbar, retaining previous design */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #4a4949; /* Darker track */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888; /* Grey thumb */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker grey on hover */
+}
+
+/* Custom utility classes for colors using Tailwind's arbitrary values */
+.bg-primary { background-color: var(--primary-color); }
+.bg-secondary { background-color: var(--secondary-color); }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.border-primary { border-color: var(--primary-color); }
+.border-secondary { border-color: var(--secondary-color); }
+.shadow-secondary { box-shadow: 0 5px 10px var(--secondary-color); } /* From your header style */
+
+/* Specific styles for the login card and elements */
+.auth-card {
+    background-color: var(--primary-color); /* Card background */
+    border: 1px solid var(--secondary-color); /* Card border */
+    box-shadow: 0 5px 10px rgba(212,185,150,.5); /* Similar to your card shadow */
+    transition: height 0.3s ease-in-out; /* Smooth transition for height change */
+}
+
+.input-field {
+    background-color: var(--primary-color); /* Input background */
+    color: var(--secondary-color); /* Input text color */
+    border: 1px solid var(--secondary-color); /* Input border */
+    line-height: normal; /* Ensure consistent line height */
+}
+
+.input-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--secondary-color); /* Focus ring */
+    border-color: transparent; /* Transparent border on focus */
+}
+
+.button-primary {
+    background-color: var(--secondary-color); /* Button background */
+    color: var(--primary-color); /* Button text color */
+    font-weight: bold;
+    transition: .5s; /* From your card hover transition */
+}
+
+.button-primary:hover {
+    transform: scale(1.05); /* Slightly larger scale on hover */
+    background-color: rgba(212,185,150,0.8); /* Lighter on hover */
+}
+
+/* Specific font for the heading */
+.body {
+    font-family: 'Bodoni Moda', serif;
+}
+
+/* Style for the password toggle icon */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: calc(50% + 2px); /* Pushes the icon down by a couple of pixels */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.password-toggle svg {
+    fill: var(--secondary-color); /* Icon color */
+}
