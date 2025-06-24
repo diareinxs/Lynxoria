@@ -6,6 +6,8 @@ const Card = ({ book }) => {
     const [show,setShow]=useState(false);
     const [bookItem,setItem]=useState();
     console.log(book)
+    const handleBack = () => setShow(false);
+    
     return (
         <>
             {
@@ -23,7 +25,12 @@ const Card = ({ book }) => {
                                     <p className="amount">&#8369;{amount}</p>
                                 </div>
                             </div>
-                            <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
+                            <Modal 
+                                show={show} 
+                                item={bookItem} 
+                                onClose={()=>setShow(false)}
+                                onBack={handleBack}
+                            />
                             </>
                         )
                     }

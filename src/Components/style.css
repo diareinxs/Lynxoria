@@ -1,19 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Poppins:wght@300&display=swap');
+/* Reset default padding and margin for all elements, set base font */
 *{
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
+
+/* Define CSS variables for color palette */
 :root{
     --primary-color:#755139FF;
     --secondary-color:#D4B996FF;
+    --tertiary-color:#F2F2F2FF;
+    --accent-color:#24a0ed;
+    --author-color:#2c3e50;
+    --publisher-color:#352114;
 }
+
+/* Set background color for the body */
 body{
     background-color: var(--primary-color);
 }
+
+/* Set base font size for rem calculations */
 html{
     font-size: 75.5%;
 }
+
+/* Header styling: size, color, shadow, flex layout */
 .header{
     width: 100%;
     height: 500px;
@@ -23,6 +36,8 @@ html{
     align-items: center;
     position: relative;
 }
+
+/* Header background with gradient and image, clipped to a circle */
 .header::before{
     content: "";
     position: absolute;
@@ -30,37 +45,49 @@ html{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(bg1.png);
+    background: linear-gradient(rgba(0,0,0,0.5),
+                                rgba(0,0,0,0.5)),url(bg1.png);
     clip-path: circle(60% at left 300px);
     z-index: -1;
 }
 
+/* Position and align row2 (header sub-section) */
 .row2{
     position: absolute;
     top:10px;
     right: 150px;
     text-align: center;
 }
+
+/* Style for h2 inside row2 */
 .row2 h2{
     font-size: 3rem;
     margin-top: 20px;
     margin-bottom: 15px;
 }
+
+/* Style for images inside row2 */
 .row2 img{
     margin-top: 30px;
     width: 250px;
 }
+
+/* Style for h1 inside row1, using Bodoni Moda font */
 .row1 h1{
     font-size: 3rem;
     text-align: center;
     margin-left: 35px;
     font-family: 'Bodoni Moda', serif;
 }
+
+/* Center the search bar using flex */
 .search{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/* Style for search input field */
 .search input{
     outline: 0;
     border: 0;
@@ -70,12 +97,16 @@ html{
     font-size: 15px;
     font-weight: bold;
 }
+
+/* Style for search button */
 .search button{
     outline: none;
     border: none;
     height: 35px;
     padding: 0 0.5rem;
 }
+
+/* Container for cards, using CSS grid */
 .container{
     width: 65%;
     margin: 0 auto;
@@ -85,6 +116,8 @@ html{
     grid-gap:20px;
     box-sizing: border-box;
 }
+
+/* Card styling: background, shadow, transition, etc. */
 .card{
     background-color: var(--secondary-color);
     border-radius: 1rem;
@@ -95,23 +128,33 @@ html{
     text-align: center;
     position: relative;
 }
+
+/* Card hover effect: scale and background color */
 .card:hover{
     transform: scale(0.9);
     background-color: rgba(255,255,255,0.8);
 }
+
+/* Card image styling */
 .card img{
     width: 100%;
     height: 200px;
     border-radius: 1rem 1rem 0 0;
 }
+
+/* Card bottom section: column flex layout */
 .card .bottom{
     display: flex;
     flex-direction: column;
 }
+
+/* Card title styling */
 .card .bottom .title{
     font-size: 14px;
     margin-bottom: 32px;
 }
+
+/* Card amount styling: position and appearance */
 .card .bottom .amount{
     position: absolute;
     bottom: 10px;
@@ -123,6 +166,8 @@ html{
     font-weight: bold;
     padding: 0.2rem;
 }
+
+/* Overlay for modal: full screen, centered content */
 .overlay{
     min-height: 100vh;
     width: 100%;
@@ -136,8 +181,11 @@ html{
     align-items: center;
     justify-content: center;
 }
+
+/* Inner box of overlay: modal content styling */
 .overlay-inner{
-    background: white;
+    background: var(--tertiary-color);
+    border-radius: 10px;
     width: 700px;
     height: 550px;
     padding: 1.5rem;
@@ -146,6 +194,8 @@ html{
     overflow: hidden;
     font-size: 1.3rem;
 }
+
+/* Close button for overlay modal */
 .overlay-inner .close{
     position: absolute;
     top:1rem;
@@ -155,35 +205,68 @@ html{
     font-size: 17px;
     background-color: transparent;
 }
+
+/* Inner content box: flex layout for image and text */
 .overlay-inner .inner-box{
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
+
+/* Image inside overlay inner box */
 .overlay-inner .inner-box img{
     margin-right: 20px;
-    width: 150px;
-    height: 200px;
+    width: 20%;
+    height: auto;
 }
+
+/* Title inside overlay inner box */
+.overlay-inner .inner-box h2{
+    margin-top: 1rem;
+    color: var(--primary-color);
+}
+
+/* Author inside overlay inner box */
 .overlay-inner .inner-box h3{
-    margin-top: 10px;
-    color: green;
+    margin-top: 1rem;
+    color: var(--author-color);
+    font-weight: bold;
 }
+
+/* Publisher inside overlay inner box */
 .overlay-inner .inner-box h4{
-    color: blue;
+    color: var(--publisher-color);
+    font-size: 1rem;
+    font-weight: normal;
 }
+
+/* Button inside overlay inner box */
 .overlay-inner .inner-box button{
     outline: none;
     border: none;
     width: 100px;
     border-radius: 5px;
-    background-color: #24a0ed;
+    background-color: green;
     color: white;
     font-weight: bold;
     padding: 0.3rem 0.5rem;
 }
+
+/* Button hover effect inside overlay inner box */
+.overlay-inner .inner-box button:hover{
+    background-color: darkgreen;
+}
+
+/* Subtitle in overlay modal */
+.overlay-inner .subtitle{
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Description text in overlay modal */
 .overlay-inner .description{
-    margin-top: 2rem;
+    margin-top: 2px;
     text-align: justify;
     font-size: 13px;
 }
