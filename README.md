@@ -2,29 +2,55 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project Structure
+
+Below is a typical file structure for a Create React App project:
+
+```
+my-app/
+├── node_modules/           # Project dependencies
+├── public/
+│   ├── index.html          # Main HTML file
+│   └── favicon.ico         # App icon
+├── src/
+│   ├── App.js              # Main App component
+│   ├── App.css             # App styles
+│   ├── index.js            # Entry point for React
+│   ├── index.css           # Global styles
+│   └── ...                 # Other components and assets
+├── package.json            # Project metadata and scripts
+├── README.md               # Project documentation
+└── .gitignore              # Files and folders to ignore in git
+```
+
+> **Note:**  
+> - The `src` folder contains all your React components, styles, and assets.  
+> - The `public` folder contains static files like `index.html` and images.  
+> - `package.json` manages dependencies and scripts.
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.  
 You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.  
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.  
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.  
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
@@ -68,3 +94,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
