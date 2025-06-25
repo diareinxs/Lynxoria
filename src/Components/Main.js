@@ -50,7 +50,7 @@ const Main = () => {
                     User
                     {userDropdownOpen && (
                         <ul className="dropdown-menu">
-                            <li className="dropdown-item">Edit User Information</li>
+                            <li className="dropdown-item">Edit Information</li>
                             <li className="dropdown-item" onClick={handleLogout}>Logout</li>
                         </ul>
                     )}
