@@ -1,313 +1,84 @@
-import React, { useState } from "react";
-//import "./Login/Login.css";
+import React, { useState } from 'react';
+import './Login.css';
 
-// Main Login component encapsulating all authentication views
-const Login = (props) => {
-    // State to manage which form is currently visible
-    const [currentView, setCurrentView] = useState('login'); // 'login', 'signup', 'forgotPassword'
+const Login = ({ onLoginSuccess }) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
-    // State for login form
-    const [loginUsername, setLoginUsername] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
-    const [showLoginPassword, setShowLoginPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
-    // State for signup form
-    const [signupUsername, setSignupUsername] = useState('');
-    const [signupEmail, setSignupEmail] = useState('');
-    const [signupPassword, setSignupPassword] = useState('');
-    const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
-    const [showSignupPassword, setShowSignupPassword] = useState(false);
-    const [showSignupConfirmPassword, setShowSignupConfirmPassword] = useState(false);
-
-    // State for forgot password form
-    const [forgotEmail, setForgotEmail] = useState('');
-
-    // --- Handlers for form submissions ---
-    const handleLoginSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // Your login logic here.
-        console.log(`Logging in with Username: ${loginUsername}, Password: ${loginPassword}`);
-        // In a real app, you would send this to an authentication API
-        //alert("Login functionality would be implemented here!"); // Retaining alert as per user's original code pattern.
-        if (props.onLogin) {
-            props.onLogin();
+        // Handle login logic here
+        console.log({ username, password, rememberMe });
+        // For now, simulate successful login
+        if (onLoginSuccess) {
+        onLoginSuccess();
         }
     };
-
-    const handleSignupSubmit = (e) => {
-        e.preventDefault();
-        // Your signup logic here
-        if (signupPassword !== signupConfirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
-        console.log(`Signing up with Username: ${signupUsername}, Email: ${signupEmail}, Password: ${signupPassword}`);
-        // In a real app, you would send this to a registration API
-        alert("Sign Up functionality would be implemented here!");
-    };
-
-    const handleForgotPasswordSubmit = (e) => {
-        e.preventDefault();
-        // Your forgot password logic here
-        console.log(`Sending password reset to Email: ${forgotEmail}`);
-        // In a real app, you would send this to a password reset API
-        alert("Password reset functionality would be implemented here!");
-    };
-
-    // --- Password visibility toggle function ---
-    const togglePasswordVisibility = (fieldSetter, currentVisibility) => {
-        fieldSetter(!currentVisibility);
-    };
-
-    // SVG icons for password visibility (eye open/closed)
-    // These are simple functional components for reusability.
-    const EyeOpenIcon = () => (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-    );
-
-    const EyeClosedIcon = () => (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
-            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
-            <line x1="1" y1="1" x2="23" y2="23"></line>
-        </svg>
-    );
 
     return (
-        <div className="login-page flex justify-center items-center min-h-screen p-5 bg-primary text-secondary">
-            {/* The CSS for styling is external and would be imported (e.g., './Login.css'). */}
-            <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-            <script src="https://cdn.tailwindcss.com"></script>
+        <div className="login-container">
+        <form className="login-form" onSubmit={handleSubmit}>
+            <h2>Login to Lynxoria</h2>
+            <label htmlFor="username">Username</label>
+            <input
+            id="username"
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            />
 
-            <div className="auth-card p-8 md:p-12 rounded-lg max-w-sm w-full">
-
-                {/* Login Form */}
-                {currentView === 'login' && (
-                    <div id="login-form">
-                        <h2 className="login-heading">Login to Lynxoria</h2>
-                        <form onSubmit={handleLoginSubmit}>
-                            <div className="login-field">
-                                <label htmlFor="login-username" className="login-label">Username</label>
-                                <input
-                                    type="text"
-                                    id="login-username"
-                                    name="username"
-                                    className="login-input"
-                                    placeholder="Enter your username"
-                                    aria-label="Username"
-                                    value={loginUsername}
-                                    onChange={(e) => setLoginUsername(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="login-field relative">
-                                <label htmlFor="login-password" className="login-label">Password</label>
-                                <input
-                                    type={showLoginPassword ? 'text' : 'password'}
-                                    id="login-password"
-                                    name="password"
-                                    className="login-input pr-10"
-                                    placeholder="Enter your password"
-                                    aria-label="Password"
-                                    value={loginPassword}
-                                    onChange={(e) => setLoginPassword(e.target.value)}
-                                    required
-                                />
-                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowLoginPassword, showLoginPassword)}>
-                                    {showLoginPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </button>
-                            </div>
-
-                            <div className="login-options">
-                                <label className="login-checkbox-label">
-                                    <input
-                                        type="checkbox"
-                                        className="login-checkbox"
-                                    />
-                                    Remember me
-                                </label>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('forgotPassword'); }} className="login-link">
-                                    Forgot Password?
-                                </a>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="login-btn"
-                            >
-                                Sign In
-                            </button>
-                        </form>
-
-                        <p className="login-switch">
-                            Don't have an account?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('signup'); }} className="login-link">Sign Up</a>
-                        </p>
-                    </div>
-                )}
-
-                {/* Sign Up Form */}
-                {currentView === 'signup' && (
-                    <div id="signup-form">
-                        <h2 className="login-heading">Create Your Account</h2>
-                        <form onSubmit={handleSignupSubmit}>
-                            <div className="login-field">
-                                <label htmlFor="signup-username" className="login-label">Username</label>
-                                <input
-                                    type="text"
-                                    id="signup-username"
-                                    name="username"
-                                    className="login-input"
-                                    placeholder="Choose a username"
-                                    aria-label="Username"
-                                    value={signupUsername}
-                                    onChange={(e) => setSignupUsername(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="login-field">
-                                <label htmlFor="signup-email" className="login-label">Email</label>
-                                <input
-                                    type="email"
-                                    id="signup-email"
-                                    name="email"
-                                    className="login-input"
-                                    placeholder="Enter your email"
-                                    aria-label="Email"
-                                    value={signupEmail}
-                                    onChange={(e) => setSignupEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="login-field relative">
-                                <label htmlFor="signup-password" className="login-label">Password</label>
-                                <input
-                                    type={showSignupPassword ? 'text' : 'password'}
-                                    id="signup-password"
-                                    name="password"
-                                    className="login-input pr-10"
-                                    placeholder="Create a password"
-                                    aria-label="Password"
-                                    value={signupPassword}
-                                    onChange={(e) => setSignupPassword(e.target.value)}
-                                    required
-                                />
-                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupPassword, showSignupPassword)}>
-                                    {showSignupPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </button>
-                            </div>
-
-                            <div className="login-field relative">
-                                <label htmlFor="signup-confirm-password" className="login-label">Confirm Password</label>
-                                <input
-                                    type={showSignupConfirmPassword ? 'text' : 'password'}
-                                    id="signup-confirm-password"
-                                    name="confirm-password"
-                                    className="login-input pr-10"
-                                    placeholder="Confirm your password"
-                                    aria-label="Confirm Password"
-                                    value={signupConfirmPassword}
-                                    onChange={(e) => setSignupConfirmPassword(e.target.value)}
-                                    required
-                                />
-                                <button type="button" className="password-toggle" onClick={() => togglePasswordVisibility(setShowSignupConfirmPassword, showSignupConfirmPassword)}>
-                                    {showSignupConfirmPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
-                                </button>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="login-btn mb-4"
-                            >
-                                Sign Up
-                            </button>
-                        </form>
-
-                        <p className="login-switch">
-                            Already have an account?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="login-link">Sign In</a>
-                        </p>
-                    </div>
-                )}
-
-                {/* Forgot Password Form */}
-                {currentView === 'forgotPassword' && (
-                    <div id="forgot-password-form">
-                        <h2 className="login-heading">Forgot Your Password?</h2>
-                        <form onSubmit={handleForgotPasswordSubmit}>
-                            <div className="login-field">
-                                <label htmlFor="forgot-email" className="login-label">Email Address</label>
-                                <input
-                                    type="email"
-                                    id="forgot-email"
-                                    name="email"
-                                    className="login-input"
-                                    placeholder="Enter your email address"
-                                    aria-label="Email Address"
-                                    value={forgotEmail}
-                                    onChange={(e) => setForgotEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="login-btn mb-4"
-                            >
-                                Reset Password
-                            </button>
-                        </form>
-
-                        <p className="login-switch">
-                            Remembered your password?
-                            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('login'); }} className="login-link">Back to Sign In</a>
-                        </p>
-                    </div>
-                )}
+            <label htmlFor="password">Password</label>
+            <div className="password-input-wrapper">
+            <input
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
+            <span
+                className={`password-toggle ${showPassword ? 'show' : ''}`}
+                onClick={togglePasswordVisibility}
+                role="button"
+                tabIndex={0}
+                aria-label="Toggle password visibility"
+                onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') togglePasswordVisibility();
+                }}
+            >
+                {showPassword ? '🙈' : '👁️'}
+            </span>
             </div>
+
+            <div className="options-row">
+            <label className="remember-me">
+                <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={() => setRememberMe(!rememberMe)}
+                />
+                Remember me
+            </label>
+            <a href="#" className="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" className="sign-in-button">Sign In</button>
+
+            <p className="signup-prompt">
+            Don&apos;t have an account? <a href="#">Sign Up</a>
+            </p>
+        </form>
         </div>
     );
-};
+    };
 
 export default Login;
-
-//const Login = () => {
-//    const [username, setUsername] = useState("");
-//    const [password, setPassword] = useState("");
-//
-//    const handleSubmit = (e) => {
-//    e.preventDefault();
-//    // Add your login logic here
-//    alert(`Username: ${username}\nPassword: ${password}`);
-//    };
-//
-//    return (
-//    <div className="login-container">
-//    <form className="login-form" onSubmit={handleSubmit}>
-//        <h2>Login</h2>
-//        <input
-//            type="text"
-//            placeholder="Username"
-//            value={username}
-//            onChange={e => setUsername(e.target.value)}
-//            required
-//        />
-//        <input
-//            type="password"
-//            placeholder="Password"
-//            value={password}
-//            onChange={e => setPassword(e.target.value)}
-//            required
-//        />
-//        <button type="submit">Login</button>
-//        </form>
-//    </div>
-//    );
-//};
-//
-//export default Login;

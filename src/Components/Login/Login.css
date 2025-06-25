@@ -1,130 +1,164 @@
-/* Define CSS Variables */
-:root {
-    --primary-color: #755139FF; /* Dark Brown */
-    --secondary-color: #D4B996FF; /* Light Beige */
-}
+/* Background container */
+.login-container {
+    height: 100vh;
+    background-color: #7b4f38; /* brown background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-/* Apply global styles */
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif; /* Default font */
-}
+/* Form container */
+.login-form {
+    background-color: #8c6f58; /* lighter brown */
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 320px;
+    color: #d6b89a; /* beige text */
+    display: flex;
+    flex-direction: column;
+    }
 
-/* Custom scrollbar, retaining previous design */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #4a4949; /* Darker track */
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background: #888; /* Grey thumb */
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker grey on hover */
-}
+/* Title */
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    }
 
-/* Utility classes for colors */
-.bg-primary { background-color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.border-primary { border-color: var(--primary-color); }
-.border-secondary { border-color: var(--secondary-color); }
-.shadow-secondary { box-shadow: 0 5px 10px var(--secondary-color); }
+/* Labels */
+.login-form label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    display: block;
+    }
 
-/* Login form custom styles */
-/* Removed empty .login-page ruleset */
-
-.login-heading {
-    font-family: 'Bodoni Moda', serif;
-    /* Add more heading styles as needed */
-}
-
-.login-field {
-    position: relative;
-    margin-bottom: 1rem;
-    /* Add more field wrapper styles as needed */
-}
-
-.login-label {
-    color: var(--secondary-color);
-    /* Add more label styles as needed */
-}
-
-.login-input {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-    line-height: normal;
+/* Inputs */
+.login-form input[type="text"],
+.login-form input[type="password"] {
     width: 100%;
-    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-    box-sizing: border-box;
-}
-
-.login-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--secondary-color);
-    border-color: transparent;
-}
-
-.login-btn {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    font-weight: bold;
-    transition: .5s;
-    cursor: pointer;
-    padding: 0.5rem 1.5rem;
-    border: none;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #d6b89a;
     border-radius: 4px;
-}
+    background-color: transparent;
+    color: #d6b89a;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    }
 
-.login-btn:hover {
-    transform: scale(1.05);
-    background-color: rgba(212,185,150,0.8);
-}
+.login-form input[type="text"]::placeholder,
+.login-form input[type="password"]::placeholder {
+    color: #cbb49a;
+    }
 
-.login-link {
-    color: var(--secondary-color);
-    text-decoration: underline;
-    cursor: pointer;
-}
+/* Input focus */
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #f0d9b5;
+    }
 
-.login-switch {
-    color: var(--secondary-color);
-    cursor: pointer;
-    /* Add more switch styles as needed */
-}
-
-.login-checkbox-label {
-    color: var(--secondary-color);
+/* Password input wrapper for toggle */
+.password-input-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    cursor: pointer;
-}
+    }
 
-.login-checkbox {
-    accent-color: var(--secondary-color);
-    margin-right: 0.5rem;
-}
+.password-input-wrapper input {
+    flex: 1;
+    padding-right: 30px;
+    }
 
-/* Style for the password toggle icon */
+/* Password toggle icon */
 .password-toggle {
     position: absolute;
-    right: 12px;
-    top: calc(50% + 2px);
-    transform: translateY(-50%);
+    right: 8px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    user-select: none;
+    font-size: 1.1rem;
+    color: #d6b89a;
+    transition: color 0.3s ease;
+    }
+
+.password-toggle:hover {
+    color: #f0d9b5;
+    }
+
+/* Options row: remember me and forgot password */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    }
+
+/* Remember me label */
+.remember-me {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-.password-toggle svg {
-    fill: var(--secondary-color);
-}
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    }
+
+/* Checkbox */
+.remember-me input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    }
+
+/* Forgot password link */
+.forgot-password {
+    color: #d6b89a;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    }
+
+.forgot-password:hover {
+    color: #f0d9b5;
+    }
+
+/* Sign in button */
+.sign-in-button {
+    background-color: #d6b89a;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    font-weight: 700;
+    color: #7b4f38;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+    }
+
+.sign-in-button:hover {
+    background-color: #cbb49a;
+    }
+
+/* Signup prompt */
+.signup-prompt {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #d6b89a;
+    }
+
+.signup-prompt a {
+    color: #d6b89a;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    }
+
+.signup-prompt a:hover {
+    color: #f0d9b5;
+    }

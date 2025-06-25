@@ -270,3 +270,64 @@ html{
     text-align: justify;
     font-size: 13px;
 }
+
+/* Navigation bar styles */
+.navbar {
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    cursor: pointer;
+    position: relative;
+    padding: 8px 12px;
+    color: var(--primary-color);
+    user-select: none;
+}
+
+.nav-item:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.user-menu::after {
+    content: " ▼";
+    font-size: 0.7em;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--secondary-color);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 160px;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: var(--primary-color);
+    user-select: none;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+}
