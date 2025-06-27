@@ -18,11 +18,11 @@ const About = () => {
             </p>
 
             <div className="developer-info">
-                <h2>Developer Information</h2>
-                <p><strong>Name:</strong> John Doe</p>
+                <h2>By</h2>
+                <h2><strong>Regine Mae Hambiol</strong></h2>
                 <p><strong>Skills:</strong> JavaScript, React, CSS, Python</p>
                 <p><strong>Passion:</strong> Building user-friendly web applications</p>
-                <p><strong>Hobbies:</strong> Reading, Hiking, Gaming</p>
+                <p><strong>Hobbies:</strong> Reading,and Gaming</p>
             </div>
         </div>
     );
