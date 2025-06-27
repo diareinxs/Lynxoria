@@ -10,6 +10,7 @@ const Main = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userDropdownOpen, setUserDropdownOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
+    const [showLogoutOverlay, setShowLogoutOverlay] = useState(false); // renamed for clarity
 
     const searchBook = (evt) => {
         if (evt.key === "Enter") {
@@ -32,6 +33,7 @@ const Main = () => {
     const handleLogout = () => {
         setIsLoggedIn(false);
         setUserDropdownOpen(false);
+        setShowLogoutOverlay(false);
     };
 
     const toggleUserDropdown = () => {
@@ -40,6 +42,15 @@ const Main = () => {
 
     const handleNavClick = (page) => {
         setCurrentPage(page);
+    };
+
+    const openLogoutOverlay = () => {
+        setShowLogoutOverlay(true);
+        setUserDropdownOpen(false);
+    };
+
+    const closeLogoutOverlay = () => {
+        setShowLogoutOverlay(false);
     };
 
     if (!isLoggedIn) {
@@ -57,12 +68,24 @@ const Main = () => {
                     {userDropdownOpen && (
                         <ul className="dropdown-menu">
                             <li className="dropdown-item">Edit Information</li>
-                            <li className="dropdown-item" onClick={handleLogout}>Logout</li>
+                            <li className="dropdown-item" onClick={openLogoutOverlay}>Logout</li>
                         </ul>
                     )}
                 </li>
             </ul>
         </nav>
+        {showLogoutOverlay && (
+            <div className="logout-overlay">
+                <div className="logout-content">
+                    <h2>Confirm Logout</h2>
+                    <p>Are you sure you want to logout?</p>
+                    <div className="modal-buttons">
+                        <button className="btn btn-yes" onClick={handleLogout}>Yes</button>
+                        <button className="btn btn-no" onClick={closeLogoutOverlay}>No</button>
+                    </div>
+                </div>
+            </div>
+        )}
         {currentPage === "home" && (
             <>
             <div className="header">

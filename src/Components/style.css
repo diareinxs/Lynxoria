@@ -243,18 +243,43 @@ html{
 /* Button inside overlay inner box */
 .overlay-inner .inner-box button{
     outline: none;
-    border: none;
+    border: 2px solid var(--primary-color);
     width: 100px;
     border-radius: 5px;
-    background-color: green;
-    color: white;
+    background-color: transparent;
+    color: var(--primary-color);
     font-weight: bold;
     padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Button hover effect inside overlay inner box */
-.overlay-inner .inner-box button:hover{
-    background-color: darkgreen;
+/* Yes button */
+.overlay-inner .inner-box button.btn-yes {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.overlay-inner .inner-box button.btn-yes:hover {
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+
+/* No button */
+.overlay-inner .inner-box button.btn-no {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.overlay-inner .inner-box button.btn-no:hover {
+    background-color: red;
+    color: white;
+    border-color: red;
 }
 
 /* Subtitle in overlay modal */
@@ -331,4 +356,40 @@ html{
     background-color: var(--primary-color);
     color: var(--secondary-color);
     transition: background-color 0.3s ease;
+}
+
+/* Logout overlay styles */
+.logout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.logout-overlay, .logout-content {
+    color: var(--primary-color);
+}
+
+.logout-content {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    
+}
+
+.modal-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    border-color: #352114;
+    border-radius: 5px;
 }
