@@ -2,6 +2,16 @@ import React from "react";
 import "./about.css";
 
 const About = () => {
+    const developerInfo = (
+        <div className="developer-info">
+            <h2>By</h2>
+            <h2><strong>Regine Mae Hambiol</strong></h2>
+            <p><strong>Skills:</strong> JavaScript, React, CSS, Python</p>
+            <p><strong>Passion:</strong> Building user-friendly web applications</p>
+            <p><strong>Hobbies:</strong> Reading,and Gaming</p>
+        </div>
+    );
+
     return (
         <div className="about-container">
             <h1>About Lynxoria</h1>
@@ -17,13 +27,7 @@ const About = () => {
                 Join our community of passionate readers and embark on your next literary journey with Lynxoria.
             </p>
 
-            <div className="developer-info">
-                <h2>By</h2>
-                <h2><strong>Regine Mae Hambiol</strong></h2>
-                <p><strong>Skills:</strong> JavaScript, React, CSS, Python</p>
-                <p><strong>Passion:</strong> Building user-friendly web applications</p>
-                <p><strong>Hobbies:</strong> Reading,and Gaming</p>
-            </div>
+            {developerInfo}
         </div>
     );
 };
