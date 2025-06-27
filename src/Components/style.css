@@ -273,7 +273,7 @@ html{
 
 /* Navigation bar styles */
 .navbar {
-    background-color: var(--secondary-color);
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     font-weight: bold;
@@ -283,6 +283,7 @@ html{
     list-style: none;
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .nav-item {
