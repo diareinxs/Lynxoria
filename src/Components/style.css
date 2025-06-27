@@ -405,8 +405,30 @@ html{
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.modal-buttons button:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
+/* Yes button for logout */
+.modal-buttons button.btn-yes {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-buttons button.btn-yes:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 0 0 8px green;
+}
+
+/* No button for logout */
+.modal-buttons button.btn-no {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-buttons button.btn-no:hover {
+    background-color: red;
+    color: white;
+    box-shadow: 0 0 8px red;
 }
