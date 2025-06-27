@@ -393,3 +393,20 @@ html{
     border-color: #352114;
     border-radius: 5px;
 }
+
+/* Fix logout buttons hover effect */
+.modal-buttons button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+}
