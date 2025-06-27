@@ -1,8 +1,8 @@
 .about-container {
     max-width: 700px;
-    margin: 50px auto;
+    margin: 25px auto;
     padding: 30px 40px;
-    background-color: #c9a97c; /* lighter warm brown */
+    background-color: rgba(221, 198, 170, 0.87); /* lighter warm brown */
     color: #4b3b2b; /* dark brown text */
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(75, 59, 43, 0.3);
@@ -25,10 +25,21 @@
     color: #4b3b2b;
 }
 
+.about-overlay {
+    background-image: url('../bg1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: inset 0 0 0 1000px rgba(230, 196, 154, 0.774); /* overlay with color and opacity */
+    color: #4b3b2b;
+}
+
 .developer-info {
     margin-top: 40px;
     padding: 20px 30px;
-    background-color: #b89a6a; /* slightly darker warm brown */
+    background-color: #b89a6ad8; /* slightly darker warm brown */
     color: #4b3b2b;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(75, 59, 43, 0.25);
