@@ -16,6 +16,14 @@ const About = () => {
             <p>
                 Join our community of passionate readers and embark on your next literary journey with Lynxoria.
             </p>
+
+            <div className="developer-info">
+                <h2>Developer Information</h2>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Skills:</strong> JavaScript, React, CSS, Python</p>
+                <p><strong>Passion:</strong> Building user-friendly web applications</p>
+                <p><strong>Hobbies:</strong> Reading, Hiking, Gaming</p>
+            </div>
         </div>
     );
 };
