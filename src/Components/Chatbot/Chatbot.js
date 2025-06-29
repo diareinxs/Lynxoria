@@ -7,6 +7,29 @@ import { GEMINI_API_KEY } from "../../config";
 
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
+// Utility function to parse URLs in text and return an array of React elements with clickable links
+const parseTextWithLinks = (text) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+  return parts.map((part, index) => {
+    if (urlRegex.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="chatbot-link"
+        >
+          {part}
+        </a>
+      );
+    } else {
+      return part;
+    }
+  });
+};
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Hello! How can I assist you with books today?" },
@@ -79,7 +102,7 @@ const Chatbot = () => {
               msg.sender === "user" ? "user-message" : "bot-message"
             }`}
           >
-            {msg.text}
+            {msg.sender === "bot" ? parseTextWithLinks(msg.text) : msg.text}
           </div>
         ))}
         {loading && (

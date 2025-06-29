@@ -135,3 +135,14 @@ body {
   width: 30px;
   height: 30px;
 }
+
+.chatbot-link {
+  color: #6B4F2B; /* dark brown */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.chatbot-link:hover {
+  color: #4B2E0E;
+  text-decoration: none;
+}
