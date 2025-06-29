@@ -3,6 +3,7 @@ import Card from "./Card";
 import axios from "axios";
 import Login from "./Login/Login";
 import About from "./About/about";
+import bg2 from "./bg2.png";
 
 const Main = () => {
     const [search, setSearch] = useState("");
@@ -108,7 +109,7 @@ const Main = () => {
                             <i className="fas fa-search"></i>
                         </button>
                     </div>
-                    <img src="./images/bg2.png" alt="" />
+                    <img src={bg2} alt="" />
                 </div>
             </div>
 
