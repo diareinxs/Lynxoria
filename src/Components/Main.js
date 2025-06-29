@@ -132,6 +132,7 @@ const Main = () => {
             </>
         )}
         {currentPage === "about" && <About />}
+        {currentPage === "chatbot" && <Chatbot />}
         </>
     );
 };
