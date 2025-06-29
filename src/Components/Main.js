@@ -3,6 +3,7 @@ import Card from "./Card";
 import axios from "axios";
 import Login from "./Login/Login";
 import About from "./About/about";
+import Chatbot from "./Chatbot/Chatbot";
 import logo from "./Lynxoria Logos.png";
 
 const Main = () => {
@@ -64,6 +65,7 @@ const Main = () => {
             <ul className="nav-list">
                 <li className="nav-item" onClick={() => handleNavClick("home")}>Home</li>
                 <li className="nav-item" onClick={() => handleNavClick("about")}>About</li>
+                {/* Removed Chatbot nav item from nav bar */}
                 <li className="nav-item user-menu" onClick={toggleUserDropdown}>
                     User
                     {userDropdownOpen && (
@@ -75,6 +77,18 @@ const Main = () => {
                 </li>
             </ul>
         </nav>
+        {/* Floating circular chatbot button */}
+        <button
+          onClick={() => handleNavClick("chatbot")}
+          className="floating-chatbot-button"
+          aria-label="Open Chatbot"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1047/10472979.png"
+            alt="Chatbot Icon"
+            className="floating-chatbot-icon"
+          />
+        </button>
         {showLogoutOverlay && (
             <div className="logout-overlay">
                 <div className="logout-content">
