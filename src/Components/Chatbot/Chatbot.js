@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
 import roboticsIcon from '../robotics.png';
-import axios from "axios";
+import { GoogleGenAI } from "@google/genai";
 
-const GEMINI_API_KEY = "GEMINI_API_KEY"; // Replace with your actual Gemini API key
+const GEMINI_API_KEY = "AIzaSyDw_tuI_CcXJdipBMKoOoagoTm8U2dei4c"; // Updated API key
+
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
@@ -16,33 +18,21 @@ const Chatbot = () => {
     // Limit the chatbot to books only by prepending a directive in the prompt
     const promptText = `Answer only about books. User query: ${userInput}`;
 
-    const requestBody = {
-      contents: [
-        {
-          parts: [
-            {
-              text: promptText,
-            },
-          ],
-        },
-      ],
-    };
-
     try {
-      const response = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-        requestBody,
-        {
-          headers: {
-            "Content-Type": "application/json",
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: [
+          {
+            parts: [
+              {
+                text: promptText,
+              },
+            ],
           },
-        }
-      );
+        ],
+      });
 
-      // Extract the generated text from the response
-      const botText =
-        response.data?.candidates?.[0]?.content || "Sorry, I couldn't get a response.";
-
+      const botText = response.text || "Sorry, I couldn't get a response.";
       return botText;
     } catch (error) {
       console.error("Error calling Gemini API:", error);
