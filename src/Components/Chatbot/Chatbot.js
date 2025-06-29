@@ -3,7 +3,7 @@ import "./Chatbot.css";
 import lynxoriaLogo from '../Lynxoria Logos.png';
 import { GoogleGenAI } from "@google/genai";
 
-const GEMINI_API_KEY = "AIzaSyDw_tuI_CcXJdipBMKoOoagoTm8U2dei4c"; // Updated API key
+import { GEMINI_API_KEY } from "../../config";
 
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 

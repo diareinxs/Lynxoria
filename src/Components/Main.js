@@ -7,6 +7,8 @@ import Chatbot from "./Chatbot/Chatbot";
 import logo from "./Lynxoria Logos.png";
 import roboticsIcon from "./robotics.png";
 
+import { GOOGLE_BOOKS_API_KEY } from "../config";
+
 const Main = () => {
     const [search, setSearch] = useState("");
     const [bookData, setData] = useState([]);
@@ -21,7 +23,7 @@ const Main = () => {
                 .get(
                     "https://www.googleapis.com/books/v1/volumes?q=" +
                         search +
-                        "&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU" +
+                        "&key=" + GOOGLE_BOOKS_API_KEY +
                         "&maxResults=40"
                 )
                 .then((res) => setData(res.data.items))
