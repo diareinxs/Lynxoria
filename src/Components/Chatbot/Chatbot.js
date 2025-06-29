@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
-import roboticsIcon from '../robotics.png';
+import lynxoriaLogo from '../Lynxoria Logos.png';
 import { GoogleGenAI } from "@google/genai";
 
 const GEMINI_API_KEY = "AIzaSyDw_tuI_CcXJdipBMKoOoagoTm8U2dei4c"; // Updated API key
@@ -68,7 +68,7 @@ const Chatbot = () => {
   return (
     <div className="chatbot-container">
       <div className="chatbot-header">
-        <img src={roboticsIcon} alt="Bot Icon" className="chatbot-header-icon" />
+        <img src={lynxoriaLogo} alt="Bot Icon" className="chatbot-header-icon" />
         Lynxoria
       </div>
       <div className="chatbot-messages">
