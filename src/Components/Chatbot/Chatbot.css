@@ -1,3 +1,8 @@
+/* Diagnostic test style to verify CSS loading */
+body {
+  background-color: #755139FF ;
+}
+
 .chatbot-container {
   width: 400px;
   height: 500px;
