@@ -59,6 +59,32 @@ body {
   white-space: pre-wrap;
 }
 
+/* Add list styles inside chatbot messages */
+.chatbot-message ul,
+.chatbot-message ol {
+  margin: 0.5em 0 0.5em 1.2em;
+  padding-left: 0;
+  color: inherit;
+}
+
+.chatbot-message ul {
+  list-style-type: disc;
+}
+
+.chatbot-message ol {
+  list-style-type: decimal;
+}
+
+.chatbot-message li {
+  margin-bottom: 0.3em;
+}
+
+/* Override list color for user messages */
+.user-message ul,
+.user-message ol {
+  color: #4B2E0E;
+}
+
 .bot-message {
   background-color: #8B5E3C; /* brown */
   align-self: flex-start;
