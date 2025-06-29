@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import About from "./About/about";
 import Chatbot from "./Chatbot/Chatbot";
 import logo from "./Lynxoria Logos.png";
+import roboticsIcon from "./robotics.png";
 
 const Main = () => {
     const [search, setSearch] = useState("");
@@ -84,7 +85,7 @@ const Main = () => {
           aria-label="Open Chatbot"
         >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/1047/10472979.png"
+            src={roboticsIcon}
             alt="Chatbot Icon"
             className="floating-chatbot-icon"
           />

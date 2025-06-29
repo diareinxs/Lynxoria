@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
+import roboticsIcon from '../robotics.png';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
@@ -57,7 +58,7 @@ const Chatbot = () => {
         />
         <button className="chatbot-send-button" onClick={handleSend}>
           <img 
-            src="https://cdn-icons-png.flaticon.com/512/5264/5264505.png" 
+            src={roboticsIcon} 
             alt="Send" 
             style={{ width: "20px", height: "20px" }} 
           />
