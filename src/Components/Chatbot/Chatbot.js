@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
 import lynxoriaLogo from '../Lynxoria Logos.png';
+import sentIcon from '../sent.png';
 import { GoogleGenAI } from "@google/genai";
 
 import { GEMINI_API_KEY } from "../../config";
@@ -122,22 +123,7 @@ const Chatbot = () => {
           disabled={loading}
         />
         <button className="chatbot-send-button" onClick={handleSend} aria-label="Send message" disabled={loading}>
-          {/* Right arrow SVG icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-arrow-right"
-            viewBox="0 0 24 24"
-          >
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
+          <img src={sentIcon} alt="Send" className="chatbot-send-icon" />
         </button>
       </div>
     </div>

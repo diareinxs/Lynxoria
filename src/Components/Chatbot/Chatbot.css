@@ -141,6 +141,12 @@ body {
   background-color: #6B4F2B;
 }
 
+.chatbot-send-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .floating-chatbot-button {
   position: fixed;
   bottom: 20px;
