@@ -7,6 +7,7 @@
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(75, 59, 43, 0.3);
     font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 .about-container h1 {
@@ -21,7 +22,7 @@
     font-size: 1.15rem;
     line-height: 1.7;
     margin-bottom: 18px;
-    text-align: justify;
+    text-align: center;
     color: #4b3b2b;
 }
 
@@ -43,6 +44,8 @@
     color: #4b3b2b;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(75, 59, 43, 0.25);
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 .developer-info h2:first-of-type {
@@ -63,4 +66,15 @@
     font-size: 1rem;
     margin-bottom: 12px;
     color: #4b3b2b;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

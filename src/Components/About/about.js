@@ -4,12 +4,7 @@ import "./about.css";
 const About = () => {
     const developerInfo = (
         <div className="developer-info">
-            <h2>Developed by</h2>
-            <h2><strong>Regine Mae Hambiol</strong></h2>
-            <p><strong>I’m deeply passionate about using design as a tool to make information and learning more accessible. I believe that good design goes beyond visuals—it empowers people, simplifies technology, and bridges gaps in understanding. 
-                This passion led me to develop Lynxoria, a platform that combines my love for reading and design to connect people with books that educate, inspire, and build a global culture of learning. 
-                My goal is to continue creating digital experiences that serve real people and make a positive impact.</strong> </p>
-            <p><strong>Hobbies:</strong> Reading,and Gaming</p>
+            <h2>Developed by</h2><p><strong>Regine Mae Hambiol</strong></p>
         </div>
     );
 
