@@ -32,31 +32,44 @@ const parseTextWithLinks = (text) => {
   });
 };
 
-// Custom function to convert markdown-style lists with '*' to HTML lists
+  
+  
+// Function to remove all asterisks from text
+const removeAsterisks = (text) => {
+  return text.replace(/\*/g, '');
+};
+
+// Custom function to convert markdown-style lists with '*' to HTML lists and parse emphasis
 const convertMarkdownListToHTML = (text) => {
-  const lines = text.split('\n');
+  // Replace bold **text**
+  let html = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Replace italic *text*
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  const lines = html.split('\n');
   let inList = false;
-  let html = '';
+  let result = '';
   lines.forEach((line) => {
-    if (line.trim().startsWith('* ')) {
+    if (line.trim().startsWith('<em>') || line.trim().startsWith('<strong>') || line.trim().startsWith('* ')) {
       if (!inList) {
         inList = true;
-        html += '<ul>';
+        result += '<ul>';
       }
-      const item = line.trim().substring(2);
-      html += `<li>${item}</li>`;
+      // Remove leading '* ' if present
+      const item = line.trim().startsWith('* ') ? line.trim().substring(2) : line.trim();
+      result += `<li>${item}</li>`;
     } else {
       if (inList) {
         inList = false;
-        html += '</ul>';
+        result += '</ul>';
       }
-      html += `<p>${line}</p>`;
+      result += `<p>${line}</p>`;
     }
   });
   if (inList) {
-    html += '</ul>';
+    result += '</ul>';
   }
-  return html;
+  return result;
 };
 
 const Chatbot = () => {
@@ -154,10 +167,16 @@ const Chatbot = () => {
             >
               {msg.sender === "bot" ? (
                 <>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: convertMarkdownListToHTML(msg.text) }}
-                    className="bot-message-content"
-                  />
+                  {msg.text.includes('*') ? (
+                    <div className="bot-message-content">
+                      {parseTextWithLinks(removeAsterisks(msg.text))}
+                    </div>
+                  ) : (
+                    <div
+                      dangerouslySetInnerHTML={{ __html: convertMarkdownListToHTML(msg.text) }}
+                      className="bot-message-content"
+                    />
+                  )}
                   {bookDetails && (
                     <div className="book-details">
                       {bookDetails.author && <div><strong>Author:</strong> {bookDetails.author}</div>}
