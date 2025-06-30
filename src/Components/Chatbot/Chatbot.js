@@ -33,7 +33,6 @@ const parseTextWithLinks = (text) => {
 };
 
   
-  
 // Function to remove all asterisks from text
 const removeAsterisks = (text) => {
   return text.replace(/\*/g, '');
@@ -156,42 +155,42 @@ const Chatbot = () => {
         Lynxoria
       </div>
       <div className="chatbot-messages">
-        {messages.map((msg, index) => {
-          const bookDetails = msg.sender === "bot" ? parseBookDetails(msg.text) : null;
-          return (
-            <div
-              key={index}
-              className={`chatbot-message ${
-                msg.sender === "user" ? "user-message" : "bot-message"
-              }`}
-            >
-              {msg.sender === "bot" ? (
-                <>
-                  {msg.text.includes('*') ? (
-                    <div className="bot-message-content">
-                      {parseTextWithLinks(removeAsterisks(msg.text))}
-                    </div>
-                  ) : (
-                    <div
-                      dangerouslySetInnerHTML={{ __html: convertMarkdownListToHTML(msg.text) }}
-                      className="bot-message-content"
-                    />
-                  )}
-                  {bookDetails && (
-                    <div className="book-details">
-                      {bookDetails.author && <div><strong>Author:</strong> {bookDetails.author}</div>}
-                      {bookDetails.publisher && <div><strong>Publisher:</strong> {bookDetails.publisher}</div>}
-                      {bookDetails.publisherDate && <div><strong>Publisher Date:</strong> {bookDetails.publisherDate}</div>}
-                      {bookDetails.rating && <div><strong>Rating:</strong> {bookDetails.rating}</div>}
-                    </div>
-                  )}
-                </>
-              ) : (
-                msg.text
-              )}
-            </div>
-          );
-        })}
+          {messages.map((msg, index) => {
+            const bookDetails = msg.sender === "bot" ? parseBookDetails(msg.text) : null;
+            return (
+              <div
+                key={index}
+                className={`chatbot-message ${
+                  msg.sender === "user" ? "user-message" : "bot-message"
+                }`}
+              >
+                {msg.sender === "bot" ? (
+                  <>
+                    {msg.text.includes('*') ? (
+                      <div className="bot-message-content">
+                        {parseTextWithLinks(removeAsterisks(msg.text))}
+                      </div>
+                    ) : (
+                      <div
+                        dangerouslySetInnerHTML={{ __html: convertMarkdownListToHTML(msg.text) }}
+                        className="bot-message-content"
+                      />
+                    )}
+                {bookDetails && (
+                  <div className="book-details">
+                    {bookDetails.author && <div><strong>Author:</strong> {bookDetails.author}</div>}
+                    {bookDetails.publisher && <div><strong>Publisher:</strong> {bookDetails.publisher}</div>}
+                    {bookDetails.publisherDate && <div><strong>Publisher Date:</strong> {bookDetails.publisherDate}</div>}
+                    {bookDetails.rating && <div><strong>Rating:</strong> {bookDetails.rating}</div>}
+                  </div>
+                )}
+                  </>
+                ) : (
+                  msg.text
+                )}
+              </div>
+            );
+          })}
         {loading && (
           <div className="chatbot-message bot-message">
             Loading...
