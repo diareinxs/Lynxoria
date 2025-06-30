@@ -4,6 +4,7 @@ import axios from "axios";
 import Login from "./Login/Login";
 import About from "./About/about";
 import Chatbot from "./Chatbot/Chatbot";
+import ForgotPass from "./Forgot_password/forgot_pass";
 import logo from "./Lynxoria Logos.png";
 import roboticsIcon from "./robotics.png";
 
@@ -16,6 +17,7 @@ const Main = () => {
     const [userDropdownOpen, setUserDropdownOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
     const [showLogoutOverlay, setShowLogoutOverlay] = useState(false); // renamed for clarity
+    const [showForgotPass, setShowForgotPass] = useState(false);
 
     const searchBook = (evt) => {
         if (evt.key === "Enter") {
@@ -58,8 +60,19 @@ const Main = () => {
         setShowLogoutOverlay(false);
     };
 
+    const openForgotPass = () => {
+        setShowForgotPass(true);
+    };
+
+    const closeForgotPass = () => {
+        setShowForgotPass(false);
+    };
+
     if (!isLoggedIn) {
-        return <Login onLoginSuccess={handleLoginSuccess} />;
+        if (showForgotPass) {
+            return <ForgotPass onBackToLogin={closeForgotPass} />;
+        }
+        return <Login onLoginSuccess={handleLoginSuccess} onForgotPassword={openForgotPass} />;
     }
 
     return (

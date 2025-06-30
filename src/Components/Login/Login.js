@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-const Login = ({ onLoginSuccess }) => {
+const Login = ({ onLoginSuccess, onForgotPassword }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -83,7 +83,7 @@ const Login = ({ onLoginSuccess }) => {
                 />
                 Remember me
             </label>
-            <a href="#" className="forgot-password">Forgot Password?</a>
+            <button type="button" className="forgot-password" onClick={onForgotPassword}>Forgot Password?</button>
             </div>
 
             <button type="submit" className="sign-in-button">Sign In</button>
