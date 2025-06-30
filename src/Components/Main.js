@@ -82,15 +82,15 @@ const Main = () => {
         </nav>
         {/* Floating circular chatbot button */}
         <button
-          onClick={() => handleNavClick("chatbot")}
-          className="floating-chatbot-button"
-          aria-label="Open Chatbot"
+            onClick={() => handleNavClick("chatbot")}
+            className="floating-chatbot-button"
+            aria-label="Open Chatbot"
         >
-          <img
-            src={roboticsIcon}
-            alt="Chatbot Icon"
-            className="floating-chatbot-icon"
-          />
+            <img
+                src={roboticsIcon}
+                alt="Chatbot Icon"
+                className="floating-chatbot-icon"
+            />
         </button>
         {showLogoutOverlay && (
             <div className="logout-overlay">
