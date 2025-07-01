@@ -5,7 +5,7 @@ const UserInfo = ({ onClose }) => {
   const [user, setUser] = useState({
     username: 'JohnDoe',
     email: 'johndoe@example.com',
-    password: 'JohnDoePassword',
+    password: 'JohnDoePassword123',
   });
 
   const [isEditing, setIsEditing] = useState(false);
