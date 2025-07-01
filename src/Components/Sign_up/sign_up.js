@@ -93,6 +93,7 @@ const SignUp = ({ onSignUpSuccess }) => {
             value={formData.username} 
             onChange={handleChange} 
             className={errors.username ? "input-error" : ""}
+            placeholder="Enter your username"
           />
           {errors.username && <span className="error">{errors.username}</span>}
         </div>
@@ -106,6 +107,7 @@ const SignUp = ({ onSignUpSuccess }) => {
             value={formData.email} 
             onChange={handleChange} 
             className={errors.email ? "input-error" : ""}
+            placeholder="Enter your email"
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
@@ -119,6 +121,7 @@ const SignUp = ({ onSignUpSuccess }) => {
             value={formData.password} 
             onChange={handleChange} 
             className={errors.password ? "input-error" : ""}
+            placeholder="Enter your password"
           />
           <button
             type="button"
@@ -153,6 +156,7 @@ const SignUp = ({ onSignUpSuccess }) => {
             value={formData.confirmPassword} 
             onChange={handleChange} 
             className={errors.confirmPassword ? "input-error" : ""}
+            placeholder="Confirm your password"
           />
           <button
             type="button"

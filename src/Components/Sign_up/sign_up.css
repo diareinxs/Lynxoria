@@ -2,18 +2,18 @@
     position: relative;
     max-width: 400px;
     margin: 2rem auto;
-    background-color: var(--secondary-color);
+    background-color: #8c6f58; /* lighter brown from login */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
     font-weight: 600;
     }
 
 .sign-up-form h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
     }
 
 .form-group {
@@ -25,7 +25,7 @@
 .form-group label {
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
     }
 
 .password-input-container {
@@ -44,7 +44,7 @@
     font-size: 1.2rem;
     user-select: none;
     padding: 0;
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
 }
 
 .password-toggle-btn:focus {
@@ -53,7 +53,7 @@
 
 .form-group input {
     padding: 0.5rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid #d6b89a; /* beige border from login */
     border-radius: 5px;
     font-size: 1rem;
     outline: none;
@@ -61,7 +61,7 @@
     }
 
 .form-group input:focus {
-    border-color: var(--accent-color);
+    border-color: #f0d9b5; /* accent color from login */
     }
 
 .input-error {
@@ -77,8 +77,8 @@
 .sign-up-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: #d6b89a; /* beige background from login */
+    color: #8c6f58; /* lighter brown text from login */
     border: none;
     border-radius: 5px;
     font-weight: 700;
@@ -88,8 +88,8 @@
     }
 
 .sign-up-button:hover {
-    background-color: green;
-    color: white;
+    background-color: #cbb49a; /* slightly darker beige from login */
+    color: #7b4f38; /* brown text from login */
     font-weight: bold;
     }
 
@@ -99,7 +99,7 @@
     left: 10px;
     background: transparent;
     border: none;
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
     font-size: 1.2rem;
     cursor: pointer;
     font-weight: 600;
@@ -116,11 +116,11 @@
 }
 
 .back-button:hover {
-    color: var(--primary-color);
+    color: #d6b89a; /* beige text from login */
     background-color: rgba(0, 0, 0, 0.1);
 }
 
 .back-button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--primary-color);
+    box-shadow: 0 0 0 2px #d6b89a; /* beige focus from login */
 }
