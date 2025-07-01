@@ -23,8 +23,8 @@ const validatePassword = (password) => {
 
 const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [username, setUsername] = useState('JohnDoe');
-    const [password, setPassword] = useState('JohnDoePassword123');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [newErrors, setNewErrors] = useState({ username: '', password: '' });
 
