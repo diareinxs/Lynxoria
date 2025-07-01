@@ -125,7 +125,7 @@ const SignUp = ({ onSignUpSuccess }) => {
           />
           <button
             type="button"
-            className="password-toggle-btn"
+            className="password-toggle-button"
             onClick={() => setShowPassword(!showPassword)}
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
@@ -160,7 +160,7 @@ const SignUp = ({ onSignUpSuccess }) => {
           />
           <button
             type="button"
-            className="password-toggle-btn"
+            className="password-toggle-button"
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
           >
