@@ -1,64 +1,172 @@
 .user-info-container {
   max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border: 1px solid #5a3e2b;
+  border-radius: 12px;
+  background-color: #d2b48c;
+  color: #3e2f1c;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(90, 62, 43, 0.3);
 }
 
 .user-info-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #3e2f1c;
+  font-weight: 700;
+  font-size: 1.8em;
 }
 
 .user-info-field {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   align-items: center;
 }
 
 .user-info-field label {
-  font-weight: bold;
-  margin-right: 10px;
+  font-weight: 600;
+  margin-right: 15px;
+  color: #5a3e2b;
+  width: 100px;
 }
 
 .user-info-field span {
   flex-grow: 1;
   text-align: right;
+  color: #3e2f1c;
+  font-size: 1.1em;
 }
 
 .user-info-field input {
   flex-grow: 1;
-  padding: 5px;
-  font-size: 1em;
+  padding: 8px 10px;
+  font-size: 1.1em;
+  border: 1px solid #5a3e2b;
+  border-radius: 6px;
+  background-color: #f5f0e6;
+  color: #3e2f1c;
+  transition: border-color 0.3s ease;
+}
+
+.user-info-field input:focus {
+  border-color: #7a5c3a;
+  outline: none;
 }
 
 .user-info-buttons {
   text-align: center;
+  margin-top: 30px;
 }
 
 .user-info-buttons button {
-  margin: 0 10px;
-  padding: 8px 16px;
-  font-size: 1em;
+  margin: 0 12px;
+  padding: 10px 22px;
+  font-size: 1.1em;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 700;
+  color: #f5f0e6;
+  box-shadow: 0 2px 5px rgba(90, 62, 43, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .edit-button {
-  background-color: #007bff;
-  color: white;
+  background-color: #7a5c3a;
+}
+
+.edit-button:hover {
+  background-color: #6b4f2f;
+  box-shadow: 0 4px 10px rgba(90, 62, 43, 0.6);
 }
 
 .save-button {
-  background-color: #28a745;
-  color: white;
+  background-color: #5a3e2b;
+}
+
+.save-button:hover {
+  background-color: #4a3223;
+  box-shadow: 0 4px 10px rgba(74, 50, 35, 0.6);
 }
 
 .cancel-button {
-  background-color: #dc3545;
-  color: white;
+  background-color: #a67c52;
+  color: #3e2f1c;
+}
+
+.cancel-button:hover {
+  background-color: #8f6b44;
+  box-shadow: 0 4px 10px rgba(143, 107, 68, 0.6);
+}
+
+.back-button {
+  background-color: #7a5c3a;
+}
+
+.back-button:hover {
+  background-color: #6b4f2f;
+  box-shadow: 0 4px 10px rgba(90, 62, 43, 0.6);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(90, 62, 43, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background-color: #d2b48c;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(90, 62, 43, 0.8);
+  text-align: center;
+  color: #3e2f1c;
+  font-weight: 700;
+  font-size: 1.2em;
+  max-width: 300px;
+}
+
+.overlay-buttons {
+  margin-top: 25px;
+}
+
+.overlay-buttons button {
+  margin: 0 15px;
+  padding: 10px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #f5f0e6;
+  box-shadow: 0 2px 5px rgba(90, 62, 43, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overlay-buttons .save-button {
+  background-color: #5a3e2b;
+}
+
+.overlay-buttons .save-button:hover {
+  background-color: #4a3223;
+  box-shadow: 0 4px 10px rgba(74, 50, 35, 0.6);
+}
+
+.overlay-buttons .cancel-button {
+  background-color: #a67c52;
+  color: #3e2f1c;
+}
+
+.overlay-buttons .cancel-button:hover {
+  background-color: #8f6b44;
+  box-shadow: 0 4px 10px rgba(143, 107, 68, 0.6);
 }
