@@ -47,8 +47,8 @@
 .password-toggle-btn {
     position: absolute;
     right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 70%;
+    transform: translateY(-90%);
     background: transparent;
     border: none;
     cursor: pointer;
