@@ -23,8 +23,8 @@ const validatePassword = (password) => {
 
 const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('JohnDoe');
+    const [password, setPassword] = useState('JohnDoePassword123');
     const [rememberMe, setRememberMe] = useState(false);
     const [newErrors, setNewErrors] = useState({ username: '', password: '' });
 
@@ -39,10 +39,22 @@ const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
         const usernameError = validateUsername(username);
         const passwordError = validatePassword(password);
 
-        const errors = {
+        let errors = {
             username: usernameError,
             password: passwordError,
         };
+
+        // Verify hardcoded credentials
+        if (!usernameError && !passwordError) {
+            if (username !== 'JohnDoe' || password !== 'JohnDoePassword123') {
+                errors = {
+                    ...errors,
+                    password: 'Invalid username or password.',
+                };
+                setNewErrors(errors);
+                return; // Stop submission if credentials do not match
+            }
+        }
 
         setNewErrors(errors);
 
