@@ -94,18 +94,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
     margin-bottom: 20px;
     font-size: 0.85rem;
+
     }
 
 /* Remember me label */
 .remember-me {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px; /* increased gap further for appropriate spacing */
     cursor: pointer;
     user-select: none;
-    margin-left: 1px;
     }
 
 /* Checkbox */
