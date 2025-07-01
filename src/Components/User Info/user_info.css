@@ -25,6 +25,47 @@
   align-items: center;
 }
 
+.user-info-field.password-field {
+  flex-grow: 1;
+}
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.password-input-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 36px; /* space for toggle button */
+  box-sizing: border-box;
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #5a3e2b;
+  padding: 0;
+  line-height: 1;
+}
+
+.password-input-container input {
+  flex-grow: 1;
+  width: 100%;
+}
+
 .user-info-field label {
   font-weight: 600;
   margin-right: 15px;
@@ -169,4 +210,24 @@
 .overlay-buttons .cancel-button:hover {
   background-color: #8f6b44;
   box-shadow: 0 4px 10px rgba(143, 107, 68, 0.6);
+}
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  flex-grow: 1;
+}
+
+.password-toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: 8px;
+  color: #5a3e2b;
+  padding: 0;
+  line-height: 1;
 }
