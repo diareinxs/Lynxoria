@@ -79,12 +79,12 @@ const Main = () => {
         setShowSignUp(false);
     };
 
-    if (!isLoggedIn) {
+if (!isLoggedIn) {
         if (showForgotPass) {
             return <ForgotPass onBackToLogin={closeForgotPass} />;
         }
         if (showSignUp) {
-            return <SignUp onSignUpSuccess={() => setShowSignUp(false)} />;
+            return <SignUp onSignUpSuccess={() => { setIsLoggedIn(true); setShowSignUp(false); }} />;
         }
         return (
             <>

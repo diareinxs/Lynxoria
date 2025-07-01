@@ -79,7 +79,7 @@ const SignUp = ({ onSignUpSuccess }) => {
         }}
         aria-label="Go back to login"
       >
-        &#8592; Back
+        &#8592;
       </button>
 
       <form className="sign-up-form" onSubmit={handleSubmit} noValidate>
