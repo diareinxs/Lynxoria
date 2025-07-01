@@ -185,6 +185,36 @@
     color: #f0d9b5;
     }
 
+/* Error message styling */
+.error-message {
+    color: #ff0000; /* bright red */
+    font-size: 0.75rem;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Email input wrapper for forgot password style */
+.email-input-wrapper {
+    background-color: #f5e6d3; /* light beige */
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+}
+
+.email-input-wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: #7b4f38; /* dark brown text */
+}
+
+.email-input-wrapper input::placeholder {
+    color: #bfae9e;
+}
+
 /* Signup link button styled similar to forgot-password */
 .signup-link {
     color: #d6b89a;
