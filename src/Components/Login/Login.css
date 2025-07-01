@@ -105,6 +105,7 @@
     gap: 6px;
     cursor: pointer;
     user-select: none;
+    margin-left: 1px;
     }
 
 /* Checkbox */
@@ -121,11 +122,18 @@
     font-weight: 500;
     cursor: pointer;
     transition: color 0.3s ease;
-    }
+    padding: 0; /* removed padding to match remember-me */
+    border-radius: 0; /* removed border-radius to match remember-me */
+    font-size: 0.85rem;
+    background-color: transparent; /* remove white background */
+    border: none; /* remove any border */
+}
 
 .forgot-password:hover {
     color: #6b4b17;
-    }
+    font-weight: bold;
+}
+
 
 /* Sign in button */
 .sign-in-button {

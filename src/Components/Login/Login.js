@@ -81,9 +81,9 @@ const Login = ({ onLoginSuccess, onForgotPassword }) => {
                 checked={rememberMe}
                 onChange={() => setRememberMe(!rememberMe)}
                 />
-                Remember me
+                    Remember me
             </label>
-            <button type="button" className="forgot-password" onClick={onForgotPassword}>Forgot Password?</button>
+            <button type="button" className="forgot-password" onClick={onForgotPassword}>Forgot Password </button>
             </div>
 
             <button type="submit" className="sign-in-button">Sign In</button>
