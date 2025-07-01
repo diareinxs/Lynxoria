@@ -78,16 +78,24 @@
 .password-toggle {
     position: absolute;
     right: 8px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
     cursor: pointer;
     user-select: none;
     font-size: 0.8rem;
     color: #d6b89a;
     transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
     }
 
 .password-toggle svg {
     width: 14px;
     height: 14px;
+    margin: auto;
 }
 
 .password-toggle:hover {
