@@ -79,10 +79,11 @@ const SignUp = ({ onSignUpSuccess }) => {
         }}
         aria-label="Go back to login"
       >
-        &#8592;
+        &#8592; Back
       </button>
+
       <form className="sign-up-form" onSubmit={handleSubmit} noValidate>
-        <h2>Sign Up</h2>
+        <h2>Create Account</h2>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input 
