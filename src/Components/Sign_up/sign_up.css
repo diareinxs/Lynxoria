@@ -30,12 +30,14 @@
     align-self: flex-start;
 }
 
+/* Container for password and confirm password inputs and their error messages */
 .password-input-container {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
+/* Label styling for password inputs */
 .password-input-container label {
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -44,6 +46,7 @@
     align-self: flex-start;
 }
 
+/* Toggle button for showing/hiding password */
 .password-toggle-btn {
     position: absolute;
     right: 8px;
@@ -60,6 +63,23 @@
 
 .password-toggle-btn:focus {
     outline: none;
+}
+
+/* Error message styling for password inputs */
+.password-input-container .error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: normal;
+}
+
+/* Input field styling for password inputs */
+.password-input-container input {
+    width: 100%;
+    margin-top: 0;
+    padding-left: 0;
 }
 
 .form-group input {
