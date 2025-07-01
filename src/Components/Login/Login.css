@@ -189,9 +189,15 @@
 .error-message {
     color: #ff0000; /* bright red */
     font-size: 0.75rem;
-    margin-top: -12px;
-    margin-bottom: 12px;
+    margin-top: 4px;
+    margin-bottom: 8px;
     font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 /* Email input wrapper for forgot password style */

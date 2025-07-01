@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 import './Login.css';
 
+const validateUsername = (username) => {
+    if (!username.trim()) {
+        return 'Username is required.';
+    }
+    if (username.trim().length < 3) {
+        return 'Username must be at least 3 characters.';
+    }
+    return '';
+};
+
+const validatePassword = (password) => {
+    if (!password) {
+        return 'Password is required.';
+    }
+    if (password.length < 6) {
+        return 'Password must be at least 6 characters.';
+    }
+    return '';
+};
+
 const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const [newErrors, setNewErrors] = useState({ username: '', password: '' });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -13,17 +34,34 @@ const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Use validation functions
+        const usernameError = validateUsername(username);
+        const passwordError = validatePassword(password);
+
+        const errors = {
+            username: usernameError,
+            password: passwordError,
+        };
+
+        setNewErrors(errors);
+
+        if (usernameError || passwordError) {
+            return; // Stop submission if validation errors exist
+        }
+
         // Handle login logic here
         console.log({ username, password, rememberMe });
         // For now, simulate successful login
         if (onLoginSuccess) {
-        onLoginSuccess();
+            onLoginSuccess();
         }
     };
 
     return (
         <div className="login-container">
         <form className="login-form" onSubmit={handleSubmit}>
+            
             <h2>Login to Lynxoria</h2>
             <label htmlFor="username">Username</label>
             <div className="password-input-wrapper">
@@ -33,9 +71,9 @@ const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
             />
             </div>
+            {newErrors.username && <div className="error-message">{newErrors.username}</div>}
 
             <label htmlFor="password">Password</label>
             <div className="password-input-wrapper">
@@ -45,7 +83,6 @@ const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
             />
             <span
                 className={`password-toggle ${showPassword ? 'show' : ''}`}
@@ -73,6 +110,7 @@ const Login = ({ onLoginSuccess, onForgotPassword, onSignUp }) => {
                 )}
             </span>
             </div>
+            {newErrors.password && <div className="error-message">{newErrors.password}</div>}
 
             <div className="options-row">
             <label className="remember-me">
