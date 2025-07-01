@@ -80,10 +80,15 @@
     right: 8px;
     cursor: pointer;
     user-select: none;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     color: #d6b89a;
     transition: color 0.3s ease;
     }
+
+.password-toggle svg {
+    width: 14px;
+    height: 14px;
+}
 
 .password-toggle:hover {
     color: #f0d9b5;
