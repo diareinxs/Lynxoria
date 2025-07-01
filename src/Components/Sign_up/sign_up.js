@@ -11,6 +11,10 @@ const SignUp = ({ onSignUpSuccess }) => {
 
   const [errors, setErrors] = useState({});
 
+  // New state variables for password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const validate = () => {
     const newErrors = {};
 
@@ -65,6 +69,18 @@ const SignUp = ({ onSignUpSuccess }) => {
 
   return (
     <div className="sign-up-container">
+      <button
+        type="button"
+        className="back-button"
+        onClick={() => {
+          if (typeof window !== "undefined" && window.location) {
+            window.location.href = "/login";
+          }
+        }}
+        aria-label="Go back to login"
+      >
+        &#8592;
+      </button>
       <form className="sign-up-form" onSubmit={handleSubmit} noValidate>
         <h2>Sign Up</h2>
         <div className="form-group">
@@ -93,29 +109,71 @@ const SignUp = ({ onSignUpSuccess }) => {
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
 
-        <div className="form-group">
+        <div className="form-group password-input-container">
           <label htmlFor="password">Password</label>
           <input 
-            type="password" 
+            type={showPassword ? "text" : "password"} 
             id="password" 
             name="password" 
             value={formData.password} 
             onChange={handleChange} 
             className={errors.password ? "input-error" : ""}
           />
+          <button
+            type="button"
+            className="password-toggle-btn"
+            onClick={() => setShowPassword(!showPassword)}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? (
+              // Eye closed SVG
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M1 10C2.73 5.61 6.36 3 10 3c3.64 0 7.27 2.61 9 7-1.73 4.39-5.36 7-9 7-3.64 0-7.27-2.61-9-7z" stroke="#333" strokeWidth="2" fill="none"/>
+                <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2" fill="none"/>
+                <line x1="4" y1="16" x2="16" y2="4" stroke="#333" strokeWidth="2"/>
+              </svg>
+            ) : (
+              // Eye open SVG
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M1 10C2.73 5.61 6.36 3 10 3c3.64 0 7.27 2.61 9 7-1.73 4.39-5.36 7-9 7-3.64 0-7.27-2.61-9-7z" stroke="#333" strokeWidth="2" fill="none"/>
+                <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2" fill="none"/>
+              </svg>
+            )}
+          </button>
           {errors.password && <span className="error">{errors.password}</span>}
         </div>
 
-        <div className="form-group">
+        <div className="form-group password-input-container">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input 
-            type="password" 
+            type={showConfirmPassword ? "text" : "password"} 
             id="confirmPassword" 
             name="confirmPassword" 
             value={formData.confirmPassword} 
             onChange={handleChange} 
             className={errors.confirmPassword ? "input-error" : ""}
           />
+          <button
+            type="button"
+            className="password-toggle-btn"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
+          >
+            {showConfirmPassword ? (
+              // Eye closed SVG
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M1 10C2.73 5.61 6.36 3 10 3c3.64 0 7.27 2.61 9 7-1.73 4.39-5.36 7-9 7-3.64 0-7.27-2.61-9-7z" stroke="#333" strokeWidth="2" fill="none"/>
+                <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2" fill="none"/>
+                <line x1="4" y1="16" x2="16" y2="4" stroke="#333" strokeWidth="2"/>
+              </svg>
+            ) : (
+              // Eye open SVG
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M1 10C2.73 5.61 6.36 3 10 3c3.64 0 7.27 2.61 9 7-1.73 4.39-5.36 7-9 7-3.64 0-7.27-2.61-9-7z" stroke="#333" strokeWidth="2" fill="none"/>
+                <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2" fill="none"/>
+              </svg>
+            )}
+          </button>
           {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
         </div>
 

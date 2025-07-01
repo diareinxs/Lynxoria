@@ -27,6 +27,29 @@
     color: var(--primary-color);
     }
 
+.password-input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    user-select: none;
+    padding: 0;
+    color: var(--primary-color);
+}
+
+.password-toggle-btn:focus {
+    outline: none;
+}
+
 .form-group input {
     padding: 0.5rem;
     border: 1px solid var(--primary-color);
@@ -67,3 +90,34 @@
     background-color: var(--accent-color);
     color: white;
     }
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 600;
+    user-select: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 36px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.back-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
