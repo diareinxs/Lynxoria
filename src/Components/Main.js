@@ -7,6 +7,8 @@ import Chatbot from "./Chatbot/Chatbot";
 import ForgotPass from "./Forgot_password/forgot_pass";
 import SignUp from "./Sign_up/sign_up";
 import logo from "./Lynxoria Logos.png";
+import UserInfo from "./User Info/user_info";
+
 import roboticsIcon from "./robotics.png";
 
 import { GOOGLE_BOOKS_API_KEY } from "../config";
@@ -20,6 +22,7 @@ const Main = () => {
     const [showLogoutOverlay, setShowLogoutOverlay] = useState(false); // renamed for clarity
     const [showForgotPass, setShowForgotPass] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
+    const [isEditingUserInfo, setIsEditingUserInfo] = useState(false);
 
     const searchBook = (evt) => {
         if (evt.key === "Enter") {
@@ -79,7 +82,16 @@ const Main = () => {
         setShowSignUp(false);
     };
 
-if (!isLoggedIn) {
+    const openUserInfoEditor = () => {
+        setIsEditingUserInfo(true);
+        setUserDropdownOpen(false);
+    };
+
+    const closeUserInfoEditor = () => {
+        setIsEditingUserInfo(false);
+    };
+
+    if (!isLoggedIn) {
         if (showForgotPass) {
             return <ForgotPass onBackToLogin={closeForgotPass} />;
         }
@@ -93,6 +105,10 @@ if (!isLoggedIn) {
         );
     }
 
+    if (isEditingUserInfo) {
+        return <UserInfo onClose={closeUserInfoEditor} />;
+    }
+
     return (
         <>
             <nav className="navbar">
@@ -104,7 +120,7 @@ if (!isLoggedIn) {
                         User
                         {userDropdownOpen && (
                             <ul className="dropdown-menu">
-                                <li className="dropdown-item">Edit Information</li>
+                                <li className="dropdown-item" onClick={openUserInfoEditor}>Edit Information</li>
                                 <li className="dropdown-item" onClick={openLogoutOverlay}>Logout</li>
                             </ul>
                         )}
