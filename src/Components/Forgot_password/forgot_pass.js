@@ -20,6 +20,7 @@ const ForgotPass = ({ onBackToLogin }) => {
             <button className="back-button top" onClick={onBackToLogin}>
                 &#8592;
             </button>
+            
             <h2>Forgot Password</h2>
             <form onSubmit={handleSubmit} className="forgot-pass-form">
                 <label htmlFor="email">Email Address</label>

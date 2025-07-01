@@ -81,7 +81,7 @@ const Main = () => {
             <ul className="nav-list">
                 <li className="nav-item" onClick={() => handleNavClick("home")}>Home</li>
                 <li className="nav-item" onClick={() => handleNavClick("about")}>About</li>
-                {/* Removed Chatbot nav item from nav bar */}
+                {/* Nav item from nav bar */}
                 <li className="nav-item user-menu" onClick={toggleUserDropdown}>
                     User
                     {userDropdownOpen && (
