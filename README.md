@@ -1,32 +1,36 @@
-# Getting Started with Create React App
+# Lynxoria React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application with a backend component, structured to support user authentication, chatbot functionality, and various UI components.
 
 ## Project Structure
 
-Below is a typical file structure for a Create React App project:
-
 ```
-my-app/
-├── node_modules/           # Project dependencies
-├── public/
+Lynxoria/
+├── backend/                # Backend server code (Python Flask)
+│   ├── app.py              # Main backend application
+│   ├── db.py               # Database connection and models
+│   ├── model.py            # Machine learning or data models
+│   └── requirements.txt    # Backend dependencies
+├── public/                 # Static files served by React
 │   ├── index.html          # Main HTML file
-│   └── favicon.ico         # App icon
-├── src/
-│   ├── App.js              # Main App component
-│   ├── App.css             # App styles
-│   ├── index.js            # Entry point for React
-│   ├── index.css           # Global styles
-│   └── ...                 # Other components and assets
+│   ├── manifest.json       # PWA manifest
+│   ├── robots.txt          # Robots exclusion file
+│   └── images/             # Image assets
+├── src/                    # React frontend source code
+│   ├── Components/         # React components organized by feature
+│   ├── App.js              # Main React component
+│   ├── index.js            # React entry point
+│   ├── App.css             # Global styles for App component
+│   └── index.css           # Global styles
 ├── package.json            # Project metadata and scripts
 ├── README.md               # Project documentation
-└── .gitignore              # Files and folders to ignore in git
+└── .gitignore              # Git ignore rules
 ```
 
 > **Note:**  
-> - The `src` folder contains all your React components, styles, and assets.  
-> - The `public` folder contains static files like `index.html` and images.  
-> - `package.json` manages dependencies and scripts.
+> - The `backend` folder contains the server-side code and dependencies.  
+> - The `public` folder holds static assets and the main HTML file.  
+> - The `src` folder contains React components and frontend source code.
 
 ## Available Scripts
 
@@ -94,4 +98,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
